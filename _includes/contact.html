@@ -3,14 +3,29 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact</h2>
-                <h4>For Patients</h4>
-                <p>Dolor reprehenderit repellendus, optio labore odio at tempore debitis nisi. Quasi debitis tenetur eaque molestias non porro odio sapiente.</p>
+                <form class="form-inline">
+                    <h4 id="for-patients">For Patients</h4>
+                    <p>Sign up with INFORA to recieve your information guide about what we do and how you can get started using our system.  
+                    </p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="patient_email" placeholder="Your email" name="email" />
+                        <button class="btn btn-primary" type="button" id="submit_patient">Submit</button>
+                    </div>
+                </form>
+                
+                <form class="form-inline">
+                    <h4 id="for-specialists" style="margin-top: 42px">For Specialists</h4>
+                    <p>If you're a Rheumatologist or autoimmune specialist, contact us to see how our tools can help you treat your patients.
+                    </p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="specialist_email" placeholder="Your email" name="email" />
+                        <button class="btn btn-primary" type="button" id="submit_specialist">Submit</button>
+                    </div>
+                </form>
 
-                <h4>For Specialists</h4>
-                <p>Specialist contact here</p>
-
-                <h5>General Information</h5>
+                <h4 style="margin-top:42px">General Information</h5>
                  <p>
+                    For any other inquiries, feel free to email us at
                     <a href="mailto:{{ site.email }}">{{ site.email }}</a>
                 </p>
             </div>

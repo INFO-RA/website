@@ -9,3 +9,53 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ "/js/grayscale.js" | prepend: site.baseurl }}"></script>
+
+    <script>
+    $(function(){
+        $('#submit_patient').click(()=>{
+            let email = $('#patient_email').val();
+            sendPost({email:email, tags:['patient']})
+            	.then((r)=>{
+            		if(r){
+            			$('#patient_email').parent().append('<p>Thank You!</p>')
+            			$('#patient_email').toggle();
+            			$('#submit_patient').toggle();
+            		}else{
+									$('#patient_email').parent().toggleClass('has-error')
+            		}
+            	})
+        })
+
+        $('#submit_specialist').click(()=>{
+            let email = $('#specialist_email').val();  
+            sendPost({email:email, tags:['specialist']})
+            	.then((r)=>{
+            		if(r){
+            			$('#specialist_email').parent().append('<p>Thank You!</p>')
+            			$('#specialist_email').toggle();
+            			$('#submit_specialist').toggle();
+            		}else{
+            			$('#specialist_email').parent().toggleClass('has-error')
+            		}
+            	})
+        })
+
+        let sendPost = (data) => {
+        	return new Promise((res,rej)=>{
+            if(data.email && data.email.length > 4 && (data.email.indexOf('@') >=0) ){
+
+                console.log('valid email');
+                $.post('https://us-central1-infora-7882c.cloudfunctions.net/signup',data)
+                	.then((result)=>{
+                		console.log('sent');
+                		res(true);
+                	})
+            }else{
+                console.log('invalid email');
+                res(false);
+            }
+        	})
+        }
+
+    })
+</script>
