@@ -17,3 +17,15 @@ footer: INFORA
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "terms"
+    values:
+      layout: "legal"
